@@ -15,4 +15,8 @@ use App\Http\Controllers\PageController;
 |
 */
 
-Route::get('/', [PageController::class, "homepage"])->name("homepage");
+Route::get('/', function () {
+    return view("welcome");
+});
+
+Route::resource("songs", PageController::class);

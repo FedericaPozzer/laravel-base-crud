@@ -14,7 +14,8 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
+        $songs =  Song::all();
+        return view("songs.index");
     }
 
     /**
