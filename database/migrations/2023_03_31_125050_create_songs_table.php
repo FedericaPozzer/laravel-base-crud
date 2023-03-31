@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('songs', function (Blueprint $table) {
             $table->id();
-            $table->string("title");
-            $table->string("album");
-            $table->string("author");
-            $table->string("editor");
-            $table->float("length");
+            $table->string("title", 50);
+            $table->string("album", 50);
+            $table->string("author", 50);
+            $table->string("editor", 50);
+            $table->string("length", 10);
             $table->string("poster");
             $table->timestamps();
         });

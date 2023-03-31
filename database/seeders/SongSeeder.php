@@ -17,20 +17,43 @@ class SongSeeder extends Seeder
      * @return void
      */
     public function run(Faker $faker)
+        // public function run()
     {
-        // for($i = 0; $i < 80; $i++) {
+        for($i = 0; $i < 10; $i++) {
 
         $new_song = new Song;
 
-        $new_song->title = $faker->
-        $new_song->album = $faker->
-        $new_song->author = $faker->
-        $new_song->editor = $faker->
-        $new_song->length = $faker->
-        $new_song->poster = $faker->
+        $new_song->title = $faker->firstNameFemale();
+        $new_song->album = $faker->firstNameMale();
+        $new_song->author = $faker->lastName();
+        $new_song->editor = $faker->company();
+        $new_song->length = $faker->time('00:20:59');
+        $new_song->poster = "https://picsum.photos/200/200";
 
         $new_song->save();
 
-        // };
+        };
+
+        // $new_song = new Song;
+
+        // $new_song->title = "Children of the Damned";
+        // $new_song->album = "The Number of the Beast";
+        // $new_song->author = "Iron Maiden";
+        // $new_song->editor = "EMI";
+        // $new_song->length = "4:33";
+        // $new_song->poster = "https://picsum.photos/200/200";
+
+        // $new_song->save();
+
+        // $new_song = new Song;
+
+        // $new_song->title = "Mother";
+        // $new_song->album = "The Wall";
+        // $new_song->author = "Pink Floyd";
+        // $new_song->editor = "EMI";
+        // $new_song->length = "5:32";
+        // $new_song->poster = "https://picsum.photos/200/200";
+
+        // $new_song->save();
     }
 }
