@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PageController; 
 
+use App\Http\Controllers\HomepageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,8 +17,6 @@ use App\Http\Controllers\PageController;
 |
 */
 
-Route::get('/', function () {
-    return view("welcome");
-});
+Route::get('/', [HomepageController::class, "index"])->name("homepage");
 
 Route::resource("songs", PageController::class);

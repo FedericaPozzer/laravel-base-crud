@@ -4,5 +4,5 @@
 
 
 @section("main-content")
-    maincont
+    dettaglio canzoni
 @endsection
