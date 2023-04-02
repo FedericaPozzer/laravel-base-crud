@@ -15,7 +15,7 @@ class PageController extends Controller
     public function index()
     {
         $songs =  Song::all();
-        return view("songs.index");
+        return view("songs.index", compact("songs"));
     }
 
     /**
@@ -47,8 +47,14 @@ class PageController extends Controller
      */
     public function show($id)
     {
-        //
+        $song = Song::find($id);
+        return view("songs.show", compact("song"));
     }
+
+    //potevo anche fare così e tra le graffe mettere direttamente il return!
+    // public function show(Song $song)
+    // { }
+
 
     /**
      * Show the form for editing the specified resource.

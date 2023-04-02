@@ -4,5 +4,30 @@
 
 
 @section("main-content")
-    maincont
+
+{{-- id title album author editor length poster --}}
+   
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+            <th scope="col">id</th>
+            <th scope="col">TITLE</th>
+            <th scope="col">AUTHOR</th>
+            <th scope="col">LENGTH</th>
+            <th scope="col">details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($songs as $song)
+            <tr>
+            <th scope="row">{{$song->id}}</th>
+            <td>{{$song->title}}</td>
+            <td>{{$song->author}}</td>
+            <td>{{$song->length}}</td>
+            <td><a href="{{ route('songs.show', ['song' => $song]) }}">details</a></td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+
 @endsection

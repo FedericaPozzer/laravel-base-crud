@@ -18,7 +18,9 @@
     </header>
 
     <main>
-        @yield("main-content")
+        <div class="container my-5">
+            @yield("main-content")
+        </div>
     </main>
     
 </body>
