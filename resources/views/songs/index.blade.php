@@ -6,6 +6,11 @@
 @section("main-content")
 
 {{-- id title album author editor length poster --}}
+    <h2 class="yellow">Songs list:</h2>
+
+    <div class="my-3 d-flex w-100 justify-content-end">
+        <a href="{{ route('songs.create') }}" type="button" class="btn btn-outline-warning">+ add new song</a>
+    </div>
    
     <table class="table table-dark table-striped">
         <thead>

@@ -25,7 +25,7 @@ class PageController extends Controller
      */
     public function create()
     {
-        //
+        return view("songs.create");
     }
 
     /**
@@ -36,7 +36,7 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -53,7 +53,7 @@ class PageController extends Controller
 
     //potevo anche fare così e tra le graffe mettere direttamente il return!
     // public function show(Song $song)
-    // { }
+    // { vedi screen SHOW ALTRO MODO }
 
 
     /**

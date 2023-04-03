@@ -1,9 +1,16 @@
 @import "~bootstrap/scss/bootstrap";
 
-.jumbotron {
-    min-height: 100vh;
+body {
+    background-color: rgb(52, 52, 52);
 }
 
-img {
-    max-height: 150px;
+a {
+    text-decoration: none;
+    color: palevioletred;
+}
+
+a:hover, 
+.yellow {
+    // color: rgb(242, 211, 5);
+    color: #ffc107;
 }
