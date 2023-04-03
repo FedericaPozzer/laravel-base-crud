@@ -12,7 +12,7 @@
         <a href="{{ route('songs.create') }}" type="button" class="btn btn-outline-warning">+ add new song</a>
     </div>
    
-    <table class="table table-dark table-striped">
+    <table class="table table-dark table-striped mt-5">
         <thead>
             <tr>
             <th scope="col">id</th>
@@ -34,5 +34,7 @@
             @endforeach
         </tbody>
     </table>
+
+    {{ $songs->links("pagination::bootstrap-5") }}
 
 @endsection
