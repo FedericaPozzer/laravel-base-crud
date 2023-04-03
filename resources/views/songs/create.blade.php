@@ -4,6 +4,7 @@
 
 @section("main-content")
 {{-- id title album author editor length poster --}}
+    <h2 class="yellow mb-3">Add a new song to the Songs list!</h2>
 
     <form action="{{ route("songs.store") }}" method="POST" class="yellow row">
         @csrf
@@ -38,8 +39,8 @@
             <input type="text" class="form-control" id="poster" name="poster">
         </div>
     
-        <div class="mt-5 d-flex">
-        <a href="{{ route('songs.create') }}" type="button" class="btn btn-outline-warning">Submit new song</a>
+        <div class="mt-4 d-flex">
+            <button type="submit" class="btn btn-outline-warning">Save</button>
         </div>
     </form>
     
