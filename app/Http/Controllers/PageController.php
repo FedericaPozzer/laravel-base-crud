@@ -36,6 +36,30 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
+
+        // "title" => "required|string|min:1|max:50",
+        // "album" => "required|string|min:1|max:50",
+        // "author" => "required|string|min:1|max:50",
+        // "editor" => "required|string|min:1|max:50",
+        // "length" => "required|string|min:1|max:10",
+        // "poster" => "required"
+
+        $request->validate([
+            "title" => "required",
+            "album" => "required",
+            "author" => "required",
+            "editor" => "required",
+            "length" => "required",
+            "poster" => "required"
+        ], [
+            "title.required" => "You need to insert the title.",
+            "album.required" => "You need to insert the album's title.",
+            "author.required" => "You need to insert the author.",
+            "editor.required" => "You need to insert the editor.",
+            "length.required" => "You need to insert the length.",
+            "poster.required" => "You need to insert the link to the poster."
+        ]);
+
         $data = $request->all();
 
         $song = new Song;

@@ -3,7 +3,19 @@
 @section("page-name", "New Song")
 
 @section("main-content")
+
+    @if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
 {{-- id title album author editor length poster --}}
+
     <h2 class="yellow mb-3">Add a new song to the Songs list!</h2>
 
     <form action="{{ route("songs.store") }}" method="POST" class="yellow row">
