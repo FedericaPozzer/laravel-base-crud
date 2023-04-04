@@ -4,13 +4,23 @@ body {
     background-color: rgb(52, 52, 52);
 }
 
-a {
+a:hover {
     text-decoration: none;
-    color: palevioletred;
+    color: rgb(205, 144, 14);
 }
 
-a:hover, 
+a, 
 .yellow {
     // color: rgb(242, 211, 5);
     color: #ffc107;
+}
+
+.action-cell {
+    display: flex;
+
+    .bi-trash {
+        background-color: transparent;
+        padding: 0;
+        border: none;
+    }
 }

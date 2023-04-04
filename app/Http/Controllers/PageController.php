@@ -157,6 +157,8 @@ class PageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $song = Song::findOrFail($id);
+        $song->delete();
+        return redirect()->route("songs.index");
     }
 }

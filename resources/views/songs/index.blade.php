@@ -29,10 +29,14 @@
             <td>{{$song->title}}</td>
             <td>{{$song->author}}</td>
             <td>{{$song->length}}</td>
-            <td>
+            <td class="action-cell">
                 <a href="{{ route('songs.show', ['song' => $song]) }}"> <i class="bi bi-file-music"></i> </a>
                 <a href="{{ route('songs.edit', ['song' => $song]) }}"> <i class="bi bi-pencil mx-3"></i> </a>
-                <a href="{{ route('songs.show', ['song' => $song]) }}"> <i class="bi bi-trash"></i> </a>
+                <form action="{{ route('songs.destroy', $song) }}" method="POST">
+                    @method("delete")
+                    @csrf
+                    <button class="bi bi-trash text-danger"></button>
+                </form>
             </td>
             </tr>
             @endforeach
