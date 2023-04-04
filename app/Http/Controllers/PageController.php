@@ -161,4 +161,5 @@ class PageController extends Controller
         $song->delete();
         return redirect()->route("songs.index");
     }
+
 }

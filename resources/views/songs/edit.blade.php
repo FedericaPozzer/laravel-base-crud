@@ -7,10 +7,10 @@
     @if($errors->any())
     <div class="alert alert-danger d-inline-block">
         <ul class="m-0 ps-0">
-            @foreach($errors->all() as $error)
+            {{-- @foreach($errors->all() as $error) --}}
             {{-- <li>{{ $error }}</li> --}}
                 <div>You typed somethig wrong, please check below to find your error!</div>
-            @endforeach
+            {{-- @endforeach --}}
         </ul>
     </div>
     @endif
