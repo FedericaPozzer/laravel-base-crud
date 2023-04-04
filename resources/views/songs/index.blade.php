@@ -19,7 +19,7 @@
             <th scope="col">TITLE</th>
             <th scope="col">AUTHOR</th>
             <th scope="col">LENGTH</th>
-            <th scope="col">details</th>
+            <th scope="col">actions</th>
             </tr>
         </thead>
         <tbody>
@@ -29,7 +29,11 @@
             <td>{{$song->title}}</td>
             <td>{{$song->author}}</td>
             <td>{{$song->length}}</td>
-            <td><a href="{{ route('songs.show', ['song' => $song]) }}">details</a></td>
+            <td>
+                <a href="{{ route('songs.show', ['song' => $song]) }}"> <i class="bi bi-file-music"></i> </a>
+                <a href="{{ route('songs.edit', ['song' => $song]) }}"> <i class="bi bi-pencil mx-3"></i> </a>
+                <a href="{{ route('songs.show', ['song' => $song]) }}"> <i class="bi bi-trash"></i> </a>
+            </td>
             </tr>
             @endforeach
         </tbody>
