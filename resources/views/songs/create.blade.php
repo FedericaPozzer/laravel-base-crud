@@ -5,6 +5,7 @@
 @section("main-content")
 
     @include("partials.error")
+    
 
     <h2 class="yellow mb-3">Add a new song to the Songs list!</h2>
 
@@ -13,7 +14,7 @@
 
         <div class="col-7 col-offset-5 my-3">
             <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control @error("title") is-invalid @enderror" id="title" name="title">
+            <input type="text" class="form-control @error("title") is-invalid @enderror" id="title" name="title" value="{{ old("title") }}">
             @error("title")
             <div class="invalid-feedback"> {{ $message }} </div>
             @enderror
@@ -21,7 +22,7 @@
 
         <div class="col-7 col-offset-5 my-3">
             <label for="album" class="form-label">Album</label>
-            <input type="text" class="form-control @error("album") is-invalid @enderror" id="album" name="album">
+            <input type="text" class="form-control @error("album") is-invalid @enderror" id="album" name="album" value="{{ old("album") }}">
             @error("album")
             <div class="invalid-feedback"> {{ $message }} </div>
             @enderror
@@ -29,7 +30,7 @@
 
         <div class="col-7 col-offset-5 my-3">
             <label for="author" class="form-label">Author</label>
-            <input type="text" class="form-control @error("author") is-invalid @enderror" id="author" name="author">
+            <input type="text" class="form-control @error("author") is-invalid @enderror" id="author" name="author" value="{{ old("author") }}">
             @error("author")
             <div class="invalid-feedback"> {{ $message }} </div>
             @enderror
@@ -37,7 +38,7 @@
 
         <div class="col-7 col-offset-5 my-3">
             <label for="editor" class="form-label">Editor</label>
-            <input type="text" class="form-control @error("editor") is-invalid @enderror" id="editor" name="editor">
+            <input type="text" class="form-control @error("editor") is-invalid @enderror" id="editor" name="editor" value="{{ old("editor") }}">
             @error("editor")
             <div class="invalid-feedback"> {{ $message }} </div>
             @enderror
@@ -45,7 +46,7 @@
 
         <div class="col-7 col-offset-5 my-3">
             <label for="length" class="form-label">Length</label>
-            <input type="text" class="form-control @error("length") is-invalid @enderror" id="length" name="length">
+            <input type="text" class="form-control @error("length") is-invalid @enderror" id="length" name="length" value="{{ old("length") }}">
             @error("length")
             <div class="invalid-feedback"> {{ $message }} </div>
             @enderror
@@ -53,7 +54,7 @@
 
         <div class="col-7 col-offset-5 my-3">
             <label for="poster" class="form-label">poster</label>
-            <input type="text" class="form-control @error("poster") is-invalid @enderror" id="poster" name="poster">
+            <input type="text" class="form-control @error("poster") is-invalid @enderror" id="poster" name="poster" value="{{ old("poster") }}">
             @error("poster")
             <div class="invalid-feedback"> {{ $message }} </div>
             @enderror

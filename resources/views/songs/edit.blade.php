@@ -6,7 +6,6 @@
 
     @include("partials.error")
 
-{{-- id title album author editor length poster --}}
 
     <h2 class="yellow mb-3">Modify the song!</h2>
 
