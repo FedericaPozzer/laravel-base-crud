@@ -14,11 +14,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        // qui va scritto questo perchè se no quando popolo la tabella con il mio seeder con 
+        // php artisan db:seed 
+        // non funziona a meno che il comando non abbia l'aggiunta 
+        // php artisan db:seed --class=SongSeeder
+        // che non va bene perchè se hai tremila seeder è meglio scriverli tutti qui e poi lanciare un comando per tutti (appunto php artisan db:seed)
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        // $this->call([
+            // SongSeeder::class,
+        // ])
     }
 }
