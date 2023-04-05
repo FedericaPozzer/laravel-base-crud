@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 use App\Models\Song;
 
 class PageController extends Controller
@@ -36,38 +38,38 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            "title" => "required|string|max:50",
-            "album" => "required|string|max:50",
-            "author" => "required|string|max:50",
-            "editor" => "required|string|max:50",
-            "length" => "required|string|max:10",
-            "poster" => "required"
-        ], [
-            "title.required" => "You must insert the title.",
-            "title.string" => "You must insert a string.",
-            "title.max" => "The string must not have more than 50 characters.",
+        // $request->validate([
+        //     "title" => "required|string|max:50",
+        //     "album" => "required|string|max:50",
+        //     "author" => "required|string|max:50",
+        //     "editor" => "required|string|max:50",
+        //     "length" => "required|string|max:10",
+        //     "poster" => "required"
+        // ], [
+        //     "title.required" => "You must insert the title.",
+        //     "title.string" => "You must insert a string.",
+        //     "title.max" => "The string must not have more than 50 characters.",
 
-            "album.required" => "You must insert the album's title.",
-            "album.string" => "You must insert a string.",
-            "album.max" => "The string must not have more than 50 characters.",
+        //     "album.required" => "You must insert the album's title.",
+        //     "album.string" => "You must insert a string.",
+        //     "album.max" => "The string must not have more than 50 characters.",
 
-            "author.required" => "You need to insert the author.",
-            "author.string" => "You must insert a string.",
-            "author.max" => "The string must not have more than 50 characters.",
+        //     "author.required" => "You need to insert the author.",
+        //     "author.string" => "You must insert a string.",
+        //     "author.max" => "The string must not have more than 50 characters.",
 
-            "editor.required" => "You need to insert the editor.",
-            "editor.string" => "You must insert a string.",
-            "editor.max" => "The string must not have more than 50 characters.",
+        //     "editor.required" => "You need to insert the editor.",
+        //     "editor.string" => "You must insert a string.",
+        //     "editor.max" => "The string must not have more than 50 characters.",
 
-            "length.required" => "You need to insert the length.",
-            "length.string" => "You must insert a string.",
-            "length.max" => "The string must not have more than 10 characters.",
+        //     "length.required" => "You need to insert the length.",
+        //     "length.string" => "You must insert a string.",
+        //     "length.max" => "The string must not have more than 10 characters.",
 
-            "poster.required" => "You need to insert the link to the poster."
-        ]);
+        //     "poster.required" => "You need to insert the link to the poster."
+        // ]);
 
-        $data = $request->all();
+        $data = $this->validation($request->all());
 
         $song = new Song;
         $song->fill($data);
@@ -113,38 +115,38 @@ class PageController extends Controller
      */
     public function update(Request $request, Song $song)
     {
-        $request->validate([
-            "title" => "required|string|max:50",
-            "album" => "required|string|max:50",
-            "author" => "required|string|max:50",
-            "editor" => "required|string|max:50",
-            "length" => "required|string|max:10",
-            "poster" => "required"
-        ], [
-            "title.required" => "You must insert the title.",
-            "title.string" => "You must insert a string.",
-            "title.max" => "The string must not have more than 50 characters.",
+        // $request->validate([
+        //     "title" => "required|string|max:50",
+        //     "album" => "required|string|max:50",
+        //     "author" => "required|string|max:50",
+        //     "editor" => "required|string|max:50",
+        //     "length" => "required|string|max:10",
+        //     "poster" => "required"
+        // ], [
+        //     "title.required" => "You must insert the title.",
+        //     "title.string" => "You must insert a string.",
+        //     "title.max" => "The string must not have more than 50 characters.",
 
-            "album.required" => "You must insert the album's title.",
-            "album.string" => "You must insert a string.",
-            "album.max" => "The string must not have more than 50 characters.",
+        //     "album.required" => "You must insert the album's title.",
+        //     "album.string" => "You must insert a string.",
+        //     "album.max" => "The string must not have more than 50 characters.",
 
-            "author.required" => "You need to insert the author.",
-            "author.string" => "You must insert a string.",
-            "author.max" => "The string must not have more than 50 characters.",
+        //     "author.required" => "You need to insert the author.",
+        //     "author.string" => "You must insert a string.",
+        //     "author.max" => "The string must not have more than 50 characters.",
 
-            "editor.required" => "You need to insert the editor.",
-            "editor.string" => "You must insert a string.",
-            "editor.max" => "The string must not have more than 50 characters.",
+        //     "editor.required" => "You need to insert the editor.",
+        //     "editor.string" => "You must insert a string.",
+        //     "editor.max" => "The string must not have more than 50 characters.",
 
-            "length.required" => "You need to insert the length.",
-            "length.string" => "You must insert a string.",
-            "length.max" => "The string must not have more than 10 characters.",
+        //     "length.required" => "You need to insert the length.",
+        //     "length.string" => "You must insert a string.",
+        //     "length.max" => "The string must not have more than 10 characters.",
 
-            "poster.required" => "You need to insert the link to the poster."
-        ]);
+        //     "poster.required" => "You need to insert the link to the poster."
+        // ]);
 
-        $data = $request->all();
+        $data = $this->validation($request->all());
         $song->update($data);
         return redirect()->route("songs.show", $song);
     }
@@ -160,6 +162,45 @@ class PageController extends Controller
         $song = Song::findOrFail($id);
         $song->delete();
         return redirect()->route("songs.index");
+    }
+
+    private function validation($data) {
+
+        return Validator::make(
+            $data, 
+            [
+                "title" => "required|string|max:50",
+                "album" => "required|string|max:50",
+                "author" => "required|string|max:50",
+                "editor" => "required|string|max:50",
+                "length" => "required|string|max:10",
+                "poster" => "required"
+            ], 
+            [
+                "title.required" => "You must insert the title.",
+                "title.string" => "You must insert a string.",
+                "title.max" => "The string must not have more than 50 characters.",
+
+                "album.required" => "You must insert the album's title.",
+                "album.string" => "You must insert a string.",
+                "album.max" => "The string must not have more than 50 characters.",
+
+                "author.required" => "You need to insert the author.",
+                "author.string" => "You must insert a string.",
+                "author.max" => "The string must not have more than 50 characters.",
+
+                "editor.required" => "You need to insert the editor.",
+                "editor.string" => "You must insert a string.",
+                "editor.max" => "The string must not have more than 50 characters.",
+
+                "length.required" => "You need to insert the length.",
+                "length.string" => "You must insert a string.",
+                "length.max" => "The string must not have more than 10 characters.",
+
+                "poster.required" => "You need to insert the link to the poster."
+            ]
+        )->validate();
+        
     }
 
 }
